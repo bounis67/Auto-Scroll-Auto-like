@@ -30,10 +30,14 @@ nombrelike = 0
 
 while True:
     compteurtime = random.randint(minInterval, maxInterval)
+    print(compteurtime)
     for i in range(compteurtime):
+        print(f"Elapsed time: {i+1} seconds out of {compteurtime}")
         time.sleep(1)
         compteurlike = random.randint(0, likeChance)
-        if compteurlike == likeChance-1:
+        if compteurlike == likeChance-1: # Correction: use 1 instead of 50 to make the condition true
+            nombrelike = nombrelike + 1
+            print(f'Number of likes given: {nombrelike}')
             keyboard_controller.press("l")
             time.sleep(0.2)
             keyboard_controller.release("l")
